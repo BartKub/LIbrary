@@ -35,6 +35,39 @@ public class Magazine extends Publication {
 	                + getMonth() + "-" + getDay() + "; " + getLanguage();
 	        System.out.println(info);
 	    }
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = super.hashCode();
+			result = prime * result + day;
+			result = prime * result + ((language == null) ? 0 : language.hashCode());
+			result = prime * result + month;
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (!super.equals(obj))
+				return false;
+			if (!(obj instanceof Magazine))
+				return false;
+			Magazine other = (Magazine) obj;
+			if (day != other.day)
+				return false;
+			if (language == null) {
+				if (other.language != null)
+					return false;
+			} else if (!language.equals(other.language))
+				return false;
+			if (month != other.month)
+				return false;
+			return true;
+		}
+		@Override
+		public String toString() {
+			return "Magazine [month=" + month + ", day=" + day + ", language=" + language + "]";
+		}
 	
 	
 	
