@@ -1,16 +1,17 @@
 package app;
  
 import utils.DataReader;
+import utils.LibraryUtils;
 import data.Book;
 import data.Library;
 import data.Magazine;
  
 public class LibraryControl {
    
-    // zmienna do komunikacji z u¿ytkownikiem
+    // zmienna do komunikacji z uï¿½ytkownikiem
     private DataReader dataReader;
  
-    // "biblioteka" przechowuj¹ca dane
+    // "biblioteka" przechowujï¿½ca dane
     private Library library;
  
     public LibraryControl() {
@@ -19,7 +20,7 @@ public class LibraryControl {
     }
  
     /*
-     * G³ówna pêtla programu, która pozwala na wybór opcji i interakcjê
+     * Gï¿½ï¿½wna pï¿½tla programu, ktï¿½ra pozwala na wybï¿½r opcji i interakcjï¿½
      */
     public void controlLoop() {
         Option  option;
@@ -39,16 +40,16 @@ public class LibraryControl {
                 printMagazines();
                 break;
             default:
-                System.out.println("Nie ma takiej opcji, wprowadŸ ponownie: ");
+                System.out.println("Nie ma takiej opcji, wprowadï¿½ ponownie: ");
             }
             printOptions();
         }
-        // zamykamy strumieñ wejœcia
+        // zamykamy strumieï¿½ wejï¿½cia
         dataReader.close();
     }
  
     private void printOptions() {
-        System.out.println("Wybierz opcjê: ");
+        System.out.println("Wybierz opcjï¿½: ");
        for (Option o: Option.values()){
     	   System.out.println(o);
        }
@@ -60,7 +61,7 @@ public class LibraryControl {
     }
  
     private void printBooks() {
-        library.printBooks();
+        LibraryUtils.printBooks(library);
     }
      
     private void addMagazine() {
@@ -69,6 +70,6 @@ public class LibraryControl {
     }
  
     private void printMagazines() {
-        library.printMagazines();
+        LibraryUtils.printMagazines(library);
     }
 }
